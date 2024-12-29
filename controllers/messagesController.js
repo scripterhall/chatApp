@@ -61,3 +61,15 @@ module.exports.deleteMsgById = async(req,res,next) => {
 
 }
 
+module.exports.getAllMessages = async(req,res,next) =>{
+
+    try{
+
+        const messages = await messageModel.find()
+      return res.json({ messages });  
+    }catch(err){
+        next(err);
+    }
+
+};
+
